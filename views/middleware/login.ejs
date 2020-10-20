@@ -1,69 +1,50 @@
+<!-- views/login.ejs -->
+<!doctype html>
 <html>
-
 <head>
-    <%- include('../partials/head') %>
+    <%- include('../partials/head.ejs') %>
 </head>
-
-<body style="background-color: #666666;">
-
-    <div class="limiter">
-        <div class="container-login">
-            <div class="wrap-login">
-                <div class="login-more" style="background-image: url('assets/img/middleware.webp');">
-                </div>
-                <form method="post" action="/login" class="login-form validate-form">
-                    <span class="login-form-title p-b-43">
-                        Login to continue
-                    </span>
-
-                    <% if (message.length > 0) { %>
-                    <div class="alert alert-danger"><%= message %></div>
-                    <% } %>
-                    <% if (successMessage.length > 0) { %>
-                    <div class="alert alert-success"><%= successMessage %></div>
-                    <% } %>
-                    <div class="wrap-inputVal validate-input" data-validate="Valid Phone Number is Required">
-                        <input class="inputVal" type="text" name="mobile">
-                        <span class="focus-inputVal"></span>
-                        <span class="label-inputVal">Phone Number</span>
-                    </div>
-
-
-                    <div class="wrap-inputVal validate-input" data-validate="Password is required">
-                        <input class="inputVal" type="password" name="password">
-                        <span class="focus-inputVal"></span>
-                        <span class="label-inputVal">Password</span>
-                    </div>
-
-                    <div class="container-login-form-btn">
-                        <button class="login-form-btn">
-                            Login
-                        </button>
-                    </div>
-
-                    <div class="flex-sb-m w-full p-t-3 p-b-32 m-t-10">
-                        <div>
-                            <a href="/forgot" class="txt5 size1">
-                                Forgot Password?
-                            </a>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <div class="vertical-align-wrap">
+        <div class="vertical-align-middle">
+            <div class="auth-box ">
+                <div class="left">
+                    <div class="content">
+                        <div class="header">
+                            <div class="logo text-center"><img src="assets/img/logo.webp" href="/"style="max-height:70px;" alt="TAX360"></div>
+                            <p class="lead">Login to your account</p>
                         </div>
+                        <form class="form-auth-small" action="/login" method="post">
+                            <% if (message.length > 0) { %>
+                            <div class="alert alert-danger"><%= message %></div>
+                            <% } %>
+    
+    
+                                <input type="number" class="form-control" name="mobile"  required placeholder="Phone Number"/>
+                                <input type="password" class = "form-control" name="password" id="password" placeholder="***********">
+                                <br>
+                                <button type="submit" class = "form-control" id="login" class="action-button">Login</button>
+                                <br>
+                                <a  style="text-decoration: none" href="/signup">Signup Here</a>
+                                &nbsp;|&nbsp;
+                                <a href="/forgot" style="text-decoration: none">Forgot Password?</a>
+                                <br>
+                        </form>
                     </div>
-
-                    <div class="text-center p-t-46 p-b-20">
-                        <a href="/signup" class="fs-24">
-                            Or Sign up Here!
-                        </a>
+                </div>
+                <div class="right" style="background-image: url('assets/img/middleware.webp');">
+                    <div class="overlay"></div>
+                    <div class="content text">
+                        <h1 class="heading">Portal Login</h1>
                     </div>
-                </form>
-
-
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-
-    <!--Start Scripts-->
-    <%- include('../partials/scripts') %>
-    <!--End Scripts-->
+</div>
+<!-- END WRAPPER -->
 </body>
-
 </html>

@@ -18,10 +18,11 @@ module.exports = function (app, passport, aws, url) {
             alphabets: false, digits: true, upperCase: false, specialChars: false
         }); signotp = otpval;
         var params = {
-            Message: 'Your TAX360 OTP for signing up is ' + otpval,
+            Message: 'Your OTP for signing up is ' + otpval,
             PhoneNumber: '+91' + number,
             MessageAttributes: { 'AWS.SNS.SMS.SenderID': { 'DataType': 'String', 'StringValue': 'signupOtp' } }
         };
+        console.log(req.body)
 
         req.db.get('users').findOne({ mobile: number }, {}, function (e, docs) {
             if(!docs) {
@@ -46,7 +47,7 @@ module.exports = function (app, passport, aws, url) {
     });
 
     app.post('/signup', otpcheck, passport.authenticate('local-signup', {
-        successRedirect: '/dashboard?smessage=Welcome! Lets get started on your first return',
+        successRedirect: '/dashboard?smessage=Welcome!',
         failureRedirect: '/signup',
         failureFlash: true
     }));
@@ -61,8 +62,7 @@ function otpcheck(req, res, next) {
         res.render('middleware/signup/otp', {
             message: "Please Check your OTP before entering",
             title: 'Signup',
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
+            first_name: req.body.name,
             email: req.body.email,
             mobile: req.body.mobile,
             pan: req.body.pan,

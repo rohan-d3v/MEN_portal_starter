@@ -4,37 +4,38 @@
     <%- include('../../partials/head') %>
 </head>
 
-<body style="background-color: #666666;">
+<body>
 
-    <div class="limiter">
-        <div class="container-login">
-            <div class="wrap-login">
-                <form method="post" action="/forgot" class="login-form validate-form" data-autosubmit="false"
-                    autocomplete="off">
-                    <span class="login-form-title p-b-30">
-                        Enter your new Password
-                    </span>
-
-                    <div class="wrap-inputVal validate-input"
-                        data-validate="Password needs to have 8 characters, 1 special, uppercase, lowercase character each and a number">
-                        <input class="inputVal" type="password" name="password" id="pass">
-                        <span class="focus-inputVal"></span>
-                        <span class="label-inputVal">Password</span>
+    <div id="wrapper">
+        <div class="vertical-align-wrap">
+            <div class="vertical-align-middle">
+                <div class="auth-box ">
+                    
+                <div class="right" style="background-image: url('assets/img/middleware.webp');">
+                    <div class="overlay"></div>
+                    <div class="content text">
+                        <h1 class="heading">Portal Signup</h1>
                     </div>
-                    <div class="wrap-inputVal validate-input" data-validate="Passwords Don't Match">
-                        <input class="inputVal" type="text" id="confirm_pass">
-                        <span class="focus-inputVal"></span>
-                        <span class="label-inputVal">Confirm Password</span>
+                </div>
+                    <div class="left">
+                        <div class="content">
+                            <div class="header">
+                                <div class="logo text-center"><img href="/" src="assets/img/logo.webp" style="max-height:70px;"></div>
+                                <p class="lead" id="passErr">Signup here</p>
+                            </div>
+                            <form class="form-auth-small" id="otpForm" action="/forgot" method="post">
+                                <div class="alert alert-danger" id="passMatch" style="display:none">Passwords Don't match</div>
+        
+                                   <input type="password" class = "form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                                        title="Password needs to have 8 characters, 1 special, uppercase, lowercase character each and a number"
+                                     name="password" id="pass" placeholder="***********" onkeyup="passCheck()">
+                                     <input type="text" class="form-control" placeholder="Confirm Password" id="confirm_pass" required onkeyup="passCheck()">
+                                    <br>
+                                    <button type="submit" id="forgotBtn" class = "form-control" class="action-button">Get OTP</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="container-login-form-btn p-t-40">
-                        <button class="login-form-btn">
-                            Change Password
-                        </button>
-                    </div>
-                    <input type="hidden" name="mobile" value=<%- mobile %> />
-
-                </form>
-                <div class="login-more" style="background-image: url('assets/img/middleware.webp');">
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
@@ -42,6 +43,20 @@
 
     <!--Start Scripts-->
     <%- include('../../partials/scripts') %>
+    <script>
+        function passCheck(){
+            if($('#confirm_pass').val() != $('#pass').val()){
+                $('#forgotBtn').attr('disabled', true);
+                $('#passMatch').removeAttr('style');
+                $('#passErr').attr('style', 'display:none')
+            }
+            else{
+                $('#forgotBtn').removeAttr('disabled');
+                $('#passMatch').attr('style', 'display:none')
+                $('#passErr').removeAttr('style');
+            }
+        }
+    </script>
     <!--End Scripts-->
 </body>
 

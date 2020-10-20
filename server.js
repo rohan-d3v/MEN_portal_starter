@@ -36,7 +36,6 @@ require('./config/routes/middleware/login.js')(app, pkg.passport);
 
 require('./config/routes/portal/routes.js')(app, pkg.passport, pkg.url);
 
-require('./config/routes/portal/cases.js')(app, pkg.passport, pkg.url);
 
 app.listen(port);
 console.log('The smugglers are on port ' + port);
