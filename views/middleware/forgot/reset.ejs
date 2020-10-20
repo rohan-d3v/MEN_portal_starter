@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body style="background-color: #666666;">
+
+    <div class="limiter">
+        <div class="container-login">
+            <div class="wrap-login">
+                <form method="post" action="/forgot" class="login-form validate-form" data-autosubmit="false"
+                    autocomplete="off">
+                    <span class="login-form-title p-b-30">
+                        Enter your new Password
+                    </span>
+
+                    <div class="wrap-inputVal validate-input"
+                        data-validate="Password needs to have 8 characters, 1 special, uppercase, lowercase character each and a number">
+                        <input class="inputVal" type="password" name="password" id="pass">
+                        <span class="focus-inputVal"></span>
+                        <span class="label-inputVal">Password</span>
+                    </div>
+                    <div class="wrap-inputVal validate-input" data-validate="Passwords Don't Match">
+                        <input class="inputVal" type="text" id="confirm_pass">
+                        <span class="focus-inputVal"></span>
+                        <span class="label-inputVal">Confirm Password</span>
+                    </div>
+                    <div class="container-login-form-btn p-t-40">
+                        <button class="login-form-btn">
+                            Change Password
+                        </button>
+                    </div>
+                    <input type="hidden" name="mobile" value=<%- mobile %> />
+
+                </form>
+                <div class="login-more" style="background-image: url('assets/img/middleware.webp');">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Start Scripts-->
+    <%- include('../../partials/scripts') %>
+    <!--End Scripts-->
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <style>
+        .cardLink:hover {
+            background-color: #a0d928;
+        }
+        .cardLink{
+            background-color: white
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Topbar -->
+        <%- include('./partials/navbar') %>
+        <!-- End of Topbar -->
+
+        <!-- Content Wrapper -->
+        <div class="container">
+            <div class="main">
+                <div class="main-content">
+                    <div class="row">
+
+                        <!-- Sidebar -->
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><%= title %></h3>
+                                        <div class="right">
+                                            <button type="button" class="btn-toggle-collapse">
+                                                <i class="lnr lnr-chevron-up"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <nav>
+                                            <ul class="nav">
+                                                <li class="nav-item">
+                                                    <a href="#" class="">Link #1</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" class="">Link #2</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Sidebar -->
+
+                        <!-- Content -->
+                        <div class="col-md-9">
+                            <% if (message.length > 0) { %>
+                            <div class="alert alert-info text-center"><%= message %></div>
+                            <% } %>
+
+                            <div class="row">
+                                <div class="col-md-4 col-bordered">
+                                    <button class="btn btn-block btn-lg cardLink">
+                                        <h3 class="p-t-50 p-b-50">My Documents</h3>
+                                    </button>
+                                </div>
+                                <div class="col-md-4 col-bordered">
+                                    <button class="btn btn-block btn-lg cardLink">
+                                        <h3 class="p-t-50 p-b-50">My Disputes</h3>
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-block btn-lg cardLink">
+                                        <h3 class="p-t-50 p-b-50">My Application</h3>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Content -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- footer -->
+    <%- include('./partials/footer') %>
+    <!-- end footer -->
+
+    <!-- scripts -->
+    <%- include('./partials/scripts') %>
+    <!-- end scripts -->
+</body>
+
+</html>

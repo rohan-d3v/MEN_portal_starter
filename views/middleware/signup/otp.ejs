@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <%- include('../../partials/head') %>
+    <link rel="stylesheet" type="text/css" href="assets/css/otp.css">
+</head>
+
+<body style="background-color: #666666;">
+
+    <div class="limiter">
+        <div class="container-login">
+            <div class="wrap-login">
+                <form method="post" action="/signup" class=" text-center login-form validate-form digit-group" data-group-name="digits"
+                    data-autosubmit="false" autocomplete="off">
+                    <span class="login-form-title p-b-30">
+                        An OTP has been sent to your number +91<%- mobile %>
+                    </span>
+                    <% if (message.length > 0) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                    <% } %>
+
+                    <input type="text" id="d1" name="d1" data-next="d2" />
+                    <input type="text" id="d2" name="d2" data-next="d3" data-previous="d1" />
+                    <input type="text" id="d3" name="d3" data-next="d4" data-previous="d2" />
+                    <span class="splitter">&ndash;</span>
+                    <input type="text" id="d4" name="d4" data-next="d5" data-previous="d3" />
+                    <input type="text" id="d5" name="d5" data-next="d6" data-previous="d4" />
+                    <input type="text" id="d6" name="d6" data-previous="d5" />
+
+                    <div class="container-login-form-btn p-t-40">
+                        <button class="login-form-btn">
+                            Sign Up
+                        </button>
+                    </div>
+
+                    <input type="hidden" name="name" value=<%- '"'+name+'"' %> />
+                    <input type="hidden" name="city" value=<%- city %> />
+                    <input type="hidden" name="email" value=<%- email %> />
+                    <input type="hidden" name="password" value=<%- password %> />
+                    <input type="hidden" name="mobile" value=<%- mobile %> />
+                </form>
+                <div class="login-more" style="background-image: url('assets/img/middleware.webp');">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Start Scripts-->
+    <%- include('../../partials/scripts') %>
+    <script src="assets/js/otp.js"></script>
+    <!--End Scripts-->
+</body>
+
+</html>

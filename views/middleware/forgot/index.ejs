@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body style="background-color: #666666;">
+
+    <div class="limiter">
+        <div class="container-login">
+            <div class="wrap-login">
+                <form method="post" action="/forgot_otp" class="login-form validate-form">
+                    <span class="login-form-title p-b-30">
+                        Forgot your Password? No Problem!
+                    </span>
+                    <% if (message.length > 0) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                    <% } %>
+                    <div class="wrap-inputVal validate-input" data-validate="Valid Phone Number is Required">
+                        <input class="inputVal" type="number" name="mobile">
+                        <span class="focus-inputVal"></span>
+                        <span class="label-inputVal">Phone Number</span>
+                    </div>
+
+                    <div class="container-login-form-btn">
+                        <button class="login-form-btn">
+                            Get OTP
+                        </button>
+                    </div>
+
+
+                    <div class="text-center p-t-46 p-b-20">
+                        <a href="/" class="fs-24">
+                            Remembered your password? Login Here!
+                        </a>
+                    </div>
+                </form>
+                <div class="login-more" style="background-image: url('assets/img/middleware.webp');">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Start Scripts-->
+    <%- include('../../partials/scripts') %>
+    <!--End Scripts-->
+</body>
+
+</html>

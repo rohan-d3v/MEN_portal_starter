@@ -1,0 +1,21 @@
+module.exports = {
+    express : require('express'),
+    mongoose : require('mongoose'),
+    passport : require('passport'),
+    morgan : require('morgan'),
+    flash : require('connect-flash'),
+    fs : require('fs'),
+    path : require('path'),
+    cookieParser : require('cookie-parser'),
+    bodyParser : require('body-parser'),
+    session : require('express-session'),
+    url : require('url'),
+    multer : require('multer'),
+    multerS3 : require('multer-s3'),
+    aws : require('aws-sdk'),
+    monk : require('monk'),
+    razorpay : require('razorpay'),
+    nodemailer : require('nodemailer'),
+    bcrypt : require('bcrypt'),
+    pdfkit : require('pdfkit')
+}
