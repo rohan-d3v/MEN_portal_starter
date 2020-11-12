@@ -1,5 +1,5 @@
-const otpGenerator = require('otp-generator'); var signotp = '';
-module.exports = function (app, passport, aws, url) {
+const otpGenerator = require('otp-generator'), userModel = require('../../models/user');
+module.exports = function (app, passport, aws) {
 
     app.get('/signup', function (req, res) {
         var eMessage = '';
@@ -16,7 +16,7 @@ module.exports = function (app, passport, aws, url) {
         var number = req.body.mobile;
         var otpval = otpGenerator.generate(6, {
             alphabets: false, digits: true, upperCase: false, specialChars: false
-        }); signotp = otpval;
+        });
         var params = {
             Message: 'Your OTP for signing up is ' + otpval,
             PhoneNumber: '+91' + number,
@@ -37,7 +37,8 @@ module.exports = function (app, passport, aws, url) {
                             email: req.body.email,
                             mobile: req.body.mobile,
                             city: req.body.city,
-                            password: req.body.password
+                            password: req.body.password,
+                            otpHash : new userModel().generateHash(otpval)
                         }); console.log('-----------------\n' + number + '|' + otpval + '\n-----------------');
                     }).catch(function (err) { res.render('error', { title: 'Error' }) });
             }
@@ -53,20 +54,21 @@ module.exports = function (app, passport, aws, url) {
     }));
 
 }
-
+const bcrypt = require('bcrypt')
 function otpcheck(req, res, next) {
-    var otp = req.body.d1+ ''+req.body.d2+ ''+req.body.d3+ ''+req.body.d4+ ''+req.body.d5+ ''+req.body.d6
-    if (otp == signotp)
+    var otp = req.body.d1+req.body.d2+req.body.d3+req.body.d4+req.body.d5+req.body.d6
+    if (bcrypt.compareSync(otp, req.body.otpHash))
         return next();
     else {
         res.render('middleware/signup/otp', {
             message: "Please Check your OTP before entering",
             title: 'Signup',
-            first_name: req.body.name,
+            name: req.body.name,
             email: req.body.email,
             mobile: req.body.mobile,
             pan: req.body.pan,
-            password: req.body.password
+            password: req.body.password,
+            otpHash: req.body.otpHash
         });
     }
 

@@ -20,7 +20,8 @@ require('./config/passport')(pkg.passport);
 
 app.use(pkg.morgan('dev'));
 app.use(pkg.cookieParser());
-app.use(pkg.bodyParser());
+app.use(pkg.bodyParser.json({extended: true}));
+app.use(pkg.bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(pkg.express.static(pkg.path.join(__dirname, 'public')));
 
@@ -30,7 +31,7 @@ app.use(pkg.passport.session());
 app.use(pkg.flash());
 
 /*Middleware Routes*/
-require('./config/routes/middleware/signup.js')(app, pkg.passport, pkg.aws, pkg.url);
+require('./config/routes/middleware/signup.js')(app, pkg.passport, pkg.aws);
 require('./config/routes/middleware/forgot.js')(app, pkg.aws, pkg.url);
 require('./config/routes/middleware/login.js')(app, pkg.passport);
 

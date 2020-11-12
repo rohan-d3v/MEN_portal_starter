@@ -4,11 +4,8 @@
 <head>
     <%- include('./partials/head') %>
     <style>
-        .cardLink:hover {
-            background-color: #a0d928;
-        }
-        .cardLink{
-            background-color: white
+        #dataTable_filter{
+            float:right
         }
     </style>
 </head>
@@ -63,25 +60,76 @@
                             <div class="alert alert-info text-center"><%= message %></div>
                             <% } %>
 
-                        </div>
-                        <!-- End of Content -->
-                    </div>
+                            <div class="card">
+                                <div class="panel">
 
+                                    <div class="panel-heading">
+                                        <h2 class="text-center">Sample Table</h2>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div class="table-responsive" style="overflow-x:hidden">
+                                            <table class="table table-bordered" id="dataTable" width="100%"
+                                                cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Email Address</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Email Address</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <%
+                                                    var list = '';
+                                                    for (i = 0; i < data.length; i++) {
+                                                   
+                                                    list += '<tr>';
+                                                        list += '<td>' + data[i].firstName + '</td>';
+                                                        list += '<td>' + data[i].lastName + '</td>';
+                                                        list += '<td>' + data[i].phoneNumber + '</td>';
+                                                        list += '<td>' + data[i].emailAddress + '</td>';
+                                                    list += '</tr>';
+                                                    }
+                                                    %>
+                                                <%- list %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Content -->
+                        </div>
+
+                    </div>
                 </div>
             </div>
+            <!-- End of Content Wrapper -->
+
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- footer -->
+        <%- include('./partials/footer') %>
+        <!-- end footer -->
 
-    <!-- footer -->
-    <%- include('./partials/footer') %>
-    <!-- end footer -->
+        <!-- scripts -->
+        <%- include('./partials/scripts') %>
 
-    <!-- scripts -->
-    <%- include('./partials/scripts') %>
-    <!-- end scripts -->
+        <script src="assets/js/datatables/jquery.dataTables.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+        <script src="assets/js/datatables/datatables-search.js"></script>
+        <!-- end scripts -->
 </body>
 
 </html>

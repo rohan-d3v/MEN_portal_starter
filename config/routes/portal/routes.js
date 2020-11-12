@@ -2,7 +2,9 @@ module.exports = function (app, passport, url) {
 
     app.get('/dashboard', isLoggedIn, function (req, res) {
         var entryMessage = ""; if(req.query.smessage) entryMessage = req.query.smessage
-        res.render('portal/dashboard', { message: entryMessage, user: req.user.name, title: 'Dashboard' });
+        req.db.get('sample_table').find({},{}, (e, docs)=>{
+            res.render('portal/dashboard', { message: entryMessage, user: req.user.name, title: 'Dashboard', data: docs });
+        })
     });
     
 };
