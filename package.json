@@ -1,6 +1,16 @@
 {
     "name": "men_portal_starter",
     "main": "server.js",
+    "scripts": {
+        "test": "cd client && mocha tests --exit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rohan-uxdev/MEN_portal_starter.git"
+    },
+    "author": "Rohan Krishna",
+    "license": "MIT",
+    "homepage": "https://github.com/rohan-uxdev/MEN_portal_starter.git",
     "dependencies": {
         "aws-sdk": "^2.736.0",
         "bcrypt": "latest",
@@ -24,5 +34,13 @@
         "pdfkit": "^0.11.0",
         "razorpay": "^2.0.6",
         "url": "^0.11.0"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "mocha": "^8.2.1",
+        "request": "^2.88.2",
+        "superagent": "^6.1.0",
+        "supertest": "^6.0.1"
     }
 }

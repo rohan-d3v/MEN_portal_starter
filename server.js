@@ -40,3 +40,6 @@ require('./config/routes/portal/routes.js')(app, pkg.passport, pkg.url);
 
 app.listen(port);
 console.log('The smugglers are on port ' + port);
+
+/*Testing*/
+module.exports = app
