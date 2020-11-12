@@ -54,10 +54,15 @@ nodemon server.js
 
 ### Test the project
 
+- Run MongoDB using Compass
+- Create a DB named 'db'
+- Create collection: 'users', 'sample_table'
+- Import sample_data/sample_users.json into users
+- Import sample_data/sample_table.json into sample_table
+
 ```bash
 npm test
 ```
-
 ---
 
 
