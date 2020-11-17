@@ -2,7 +2,7 @@
     "name": "men_portal_starter",
     "main": "server.js",
     "scripts": {
-        "test": "cd client && mocha tests --exit"
+        "test": "mocha tests --exit"
     },
     "repository": {
         "type": "git",

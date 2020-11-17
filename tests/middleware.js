@@ -2,7 +2,7 @@ process.env.NODE_ENV = 'test';
 
 const expect = require('chai').expect, request = require('supertest'), app = require('../server');
 
-const validCredentials = { "mobile": "9876543210", "password": "Demo@123" }
+const validCredentials = { "mobile": "9876543210", "password": "Demo@360" }
 
 var validUser = request.agent(app);
 before(function (done) {
