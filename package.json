@@ -2,6 +2,7 @@
     "name": "men_portal_starter",
     "main": "server.js",
     "scripts": {
+        "start": "npm i -g nodemon && nodemon server.js",
         "test": "mocha tests --exit"
     },
     "repository": {

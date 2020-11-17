@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   // DataTable
   $('#dataTable').DataTable({
-    dom: 'lbfrtip',
+    dom: 'lBfrtip',
     buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
     initComplete: function () {
       // Apply the search
