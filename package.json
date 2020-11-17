@@ -17,7 +17,6 @@
         "body-parser": "^1.19.0",
         "connect-flash": "~0.1.1",
         "cookie-parser": "~1.4.3",
-        "cors": "^2.8.5",
         "ejs": "^3.1.3",
         "express": "^4.14.1",
         "express-session": "^1.17.1",
@@ -35,12 +34,16 @@
         "razorpay": "^2.0.6",
         "url": "^0.11.0"
     },
+    "husky":{
+        "hooks":{
+            "pre-commit": "npm test"
+        }
+    },
     "devDependencies": {
         "chai": "^4.2.0",
-        "chai-http": "^4.3.0",
+        "husky": "^4.3.0",
         "mocha": "^8.2.1",
         "request": "^2.88.2",
-        "superagent": "^6.1.0",
         "supertest": "^6.0.1"
     }
 }

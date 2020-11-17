@@ -73,18 +73,18 @@
                                                 cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Email Address</th>
+                                                        <th>Name</th>
+                                                        <th>Address</th>
+                                                        <th>Country</th>
+                                                        <th>Zipcode</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Email Address</th>
+                                                        <th>Name</th>
+                                                        <th>Address</th>
+                                                        <th>Country</th>
+                                                        <th>Zipcode</th>
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
@@ -93,10 +93,10 @@
                                                     for (i = 0; i < data.length; i++) {
                                                    
                                                     list += '<tr>';
-                                                        list += '<td>' + data[i].firstName + '</td>';
-                                                        list += '<td>' + data[i].lastName + '</td>';
-                                                        list += '<td>' + data[i].phoneNumber + '</td>';
-                                                        list += '<td>' + data[i].emailAddress + '</td>';
+                                                        list += '<td>' + data[i].name + '</td>';
+                                                        list += '<td>' + data[i].address + '</td>';
+                                                        list += '<td>' + data[i].country + '</td>';
+                                                        list += '<td>' + data[i].zipcode + '</td>';
                                                     list += '</tr>';
                                                     }
                                                     %>
