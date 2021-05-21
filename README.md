@@ -1,6 +1,5 @@
 # **:triangular_flag_on_post: MEN_PORTAL_STARTER** (version )
 
----
 
 ## **:package: Main tools used**
 
